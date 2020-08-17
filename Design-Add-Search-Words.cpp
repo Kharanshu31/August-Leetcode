@@ -38,10 +38,10 @@ public:
 //                         return false;
 //                 }
 //                 return true;
-//             }
-        
+//             }   
 //         return false;
-         int n=word.size();
+        
+        int n=word.size();
         for(string s : m[n])
         {
             if(check(word,s))
