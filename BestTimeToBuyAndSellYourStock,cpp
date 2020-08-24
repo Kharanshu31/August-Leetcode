@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n=prices.size();   
+        if(n<=1)
+            return 0;
+            
+        int pre[n+1];
+        memset(pre,0,sizeof(pre));
+        int suf[n+1];
+        memset(suf,0,sizeof(suf));
+  
+        int mn=prices[0];
+        int val=0;
+   
+        for(int i=1;i<n;i++){
+            val=max(val,prices[i]-mn);
+            pre[i]=val;
+            mn=min(prices[i],mn);
+        }
+     
+        int mx=prices[n-1];
+        val=0;
+   
+        for(int i=n-2;i>=0;i--){
+            val=max(val,mx-prices[i]);
+            suf[i]=val;
+            mx=max(mx,prices[i]);
+        }
+     
+        int ans=0;
+      
+        for(int i=0;i<n;i++){
+            ans=max(ans,pre[i]+suf[i+1]);
+        }
+        
+        return ans;
+    }
+};
