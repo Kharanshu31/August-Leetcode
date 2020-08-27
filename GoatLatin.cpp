@@ -51,8 +51,6 @@ public:
                //temp.insert(0,"ma");
            }
            temp+=a;
-           //temp+=count_a[i];
-          // temp+="a";
            res+=temp;
            if(i!=ans.size()-1)
             res+=" ";
